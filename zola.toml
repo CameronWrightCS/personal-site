@@ -8,6 +8,9 @@ generate_feeds = false      # No blog
 build_search_index = false  # No JavaScript
 minify_html = false         # Readable view-source
 
+[markdown]
+smart_punctuation = true    # Curly quotes, like LaTeX
+
 # Personal details used by the templates
 [extra]
 role = "Software engineer"
