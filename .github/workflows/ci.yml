@@ -26,6 +26,12 @@ jobs:
         with:
           args: check
 
+      # Latest on purpose: HTML is a living standard and the dated tags stopped in 2024
+      - name: Validate HTML
+        uses: docker://ghcr.io/validator/validator:latest
+        with:
+          args: vnu --skip-non-html public
+
       - uses: actions/upload-pages-artifact@v5
         if: github.ref == 'refs/heads/main'
         with:
