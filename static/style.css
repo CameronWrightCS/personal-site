@@ -14,6 +14,7 @@
 
   --size-body: 1.0625rem;             /* 17px */
   --size-name: 2.25rem;               /* 36px */
+  --size-title: 1.875rem;             /* 30px */
   --size-heading: 1.3125rem;          /* 21px */
   --size-abstract: 1.0625rem;         /* 17px */
   --size-abstract-heading: 0.9375rem; /* 15px */
@@ -29,6 +30,7 @@
   :root {
     --size-body: 1.1875rem;           /* 19px */
     --size-name: 3rem;                /* 48px */
+    --size-title: 2.25rem;            /* 36px */
     --size-heading: 1.5rem;           /* 24px */
     --size-abstract: 1.09375rem;      /* 17.5px */
     --size-abstract-heading: 1rem;    /* 16px */
@@ -99,7 +101,7 @@ body {
 
 h1 {
   font-family: var(--font-display);
-  font-size: var(--size-name);
+  font-size: var(--size-title);
   font-weight: normal;
   line-height: 1.15;
   text-align: center;
@@ -145,6 +147,10 @@ header {
 
 header h1 {
   margin: 0 0 0.75rem;
+}
+
+.name {
+  font-size: var(--size-name);
 }
 
 header p {
