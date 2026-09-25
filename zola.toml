@@ -1,0 +1,9 @@
+# Must match where the site is served. Update it when a domain is added.
+base_url = "https://cameronwrightcs.github.io/personal-site"
+title = "Cameron Wright"
+default_language = "en"
+
+compile_sass = false        # One plain CSS file
+generate_feeds = false      # No blog
+build_search_index = false  # No JavaScript
+minify_html = false         # Readable view-source
