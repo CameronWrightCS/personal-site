@@ -18,6 +18,7 @@
   --size-abstract: 1.0625rem;         /* 17px */
   --size-abstract-heading: 0.9375rem; /* 15px */
   --size-summary: 1rem;               /* 16px */
+  --size-colophon: 0.90625rem;        /* 14.5px */
 
   --column: 40rem;                    /* 640px */
   --gap: 4rem;                        /* 64px */
@@ -32,6 +33,7 @@
     --size-abstract: 1.09375rem;      /* 17.5px */
     --size-abstract-heading: 1rem;    /* 16px */
     --size-summary: 1.0625rem;        /* 17px */
+    --size-colophon: 0.9375rem;       /* 15px */
   }
 }
 
@@ -186,4 +188,10 @@ header nav {
   margin: 0.25rem 0 0;
   color: var(--muted);
   font-size: var(--size-summary);
+}
+
+/* Colophon */
+footer {
+  color: var(--muted);
+  font-size: var(--size-colophon);
 }
