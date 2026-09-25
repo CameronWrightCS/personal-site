@@ -1,11 +1,12 @@
 :root {
   color-scheme: light dark;
 
-  --paper: #f8f9fa;
-  --ink: #111418;
-  --muted: #4b5160;
-  --link: #1d3b8c;
-  --rule: #111418;
+  /* Each color is light-dark(light, dark), picked by color-scheme */
+  --paper: light-dark(#f8f9fa, #16181c);
+  --ink: light-dark(#111418, #e4e6ea);
+  --muted: light-dark(#4b5160, #a0a6b1);
+  --link: light-dark(#1d3b8c, #93abeb);
+  --rule: light-dark(#111418, #e4e6ea);
 
   --font-text: "LM Roman 10", Georgia, serif;
   --font-display: "LM Roman 17", Georgia, serif;
@@ -36,17 +37,6 @@
     --size-abstract-heading: 1rem;    /* 16px */
     --size-summary: 1.0625rem;        /* 17px */
     --size-colophon: 0.9375rem;       /* 15px */
-  }
-}
-
-/* Dark colors, when the device is in dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #16181c;
-    --ink: #e4e6ea;
-    --muted: #a0a6b1;
-    --link: #93abeb;
-    --rule: #e4e6ea;
   }
 }
 
