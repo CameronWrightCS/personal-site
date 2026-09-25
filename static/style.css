@@ -119,3 +119,32 @@ a:hover {
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
+
+/* Title block */
+header {
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 0.75rem;
+}
+
+header p {
+  margin: 0.25rem 0;
+}
+
+.role {
+  font-family: var(--font-caps);
+  letter-spacing: 0.06em;
+}
+
+.email {
+  font-family: var(--font-mono);
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+}

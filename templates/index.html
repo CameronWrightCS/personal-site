@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block header %}
     <h1>{{ config.title }}</h1>
-{%- endblock content %}
+    <p class="role">{{ config.extra.role }}</p>
+    <p><a class="email" href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></p>
+    <nav>
+      <a href="{{ config.extra.linkedin }}">LinkedIn</a>
+      <a href="{{ get_url(path=config.extra.resume) }}">Resume (PDF)</a>
+    </nav>
+{%- endblock header %}
