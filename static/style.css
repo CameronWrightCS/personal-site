@@ -191,6 +191,10 @@ header nav {
   margin: 0;
 }
 
+.abstract .keywords {
+  margin-top: 0.75rem;
+}
+
 /* Case studies */
 .case-studies {
   padding: 0;
