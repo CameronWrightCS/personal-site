@@ -195,6 +195,21 @@ header nav {
   margin-top: 0.75rem;
 }
 
+/* Numbered sections */
+main {
+  counter-reset: section;
+}
+
+main > h2 {
+  margin: 2.5rem 0 0.75rem;
+}
+
+main > h2::before {
+  counter-increment: section;
+  content: counter(section);
+  margin-right: 1em;
+}
+
 /* Case studies */
 .case-studies {
   padding: 0;
