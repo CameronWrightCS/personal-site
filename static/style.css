@@ -94,6 +94,7 @@ h1 {
   font-size: var(--size-name);
   font-weight: normal;
   line-height: 1.15;
+  text-align: center;
 }
 
 h2 {
