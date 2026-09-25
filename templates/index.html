@@ -9,3 +9,10 @@
       <a href="{{ get_url(path=config.extra.resume) }}">Resume (PDF)</a>
     </nav>
 {%- endblock header %}
+
+{% block content %}
+    <section class="abstract">
+      <h2>Abstract</h2>
+      {{ section.content | trim | safe }}
+    </section>
+{%- endblock content %}

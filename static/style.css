@@ -12,20 +12,24 @@
   --font-caps: "LM Roman Caps 10", Georgia, serif;
   --font-mono: "LM Mono 10", "Courier New", monospace;
 
-  --size-body: 1.0625rem;    /* 17px */
-  --size-name: 2.25rem;      /* 36px */
-  --size-heading: 1.3125rem; /* 21px */
+  --size-body: 1.0625rem;             /* 17px */
+  --size-name: 2.25rem;               /* 36px */
+  --size-heading: 1.3125rem;          /* 21px */
+  --size-abstract: 1.0625rem;         /* 17px */
+  --size-abstract-heading: 0.9375rem; /* 15px */
 
-  --column: 40rem;           /* 640px */
-  --gap: 4rem;               /* 64px */
+  --column: 40rem;                    /* 640px */
+  --gap: 4rem;                        /* 64px */
 }
 
 /* Desktop sizes, from 640px up */
 @media (min-width: 40rem) {
   :root {
-    --size-body: 1.1875rem;  /* 19px */
-    --size-name: 3rem;       /* 48px */
-    --size-heading: 1.5rem;  /* 24px */
+    --size-body: 1.1875rem;           /* 19px */
+    --size-name: 3rem;                /* 48px */
+    --size-heading: 1.5rem;           /* 24px */
+    --size-abstract: 1.09375rem;      /* 17.5px */
+    --size-abstract-heading: 1rem;    /* 16px */
   }
 }
 
@@ -147,4 +151,21 @@ header nav {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 0.75rem;
+}
+
+/* Abstract */
+.abstract {
+  max-width: 33.75rem; /* 540px */
+  margin-inline: auto;
+  font-size: var(--size-abstract);
+}
+
+.abstract h2 {
+  margin: 0 0 0.5rem;
+  font-size: var(--size-abstract-heading);
+  text-align: center;
+}
+
+.abstract p {
+  margin: 0;
 }
