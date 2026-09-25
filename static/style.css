@@ -157,7 +157,8 @@ header p {
   margin: 0.25rem 0;
 }
 
-.role {
+.role,
+.author {
   font-family: var(--font-caps);
   letter-spacing: 0.06em;
 }
@@ -167,6 +168,10 @@ header nav {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 0.75rem;
+}
+
+.back {
+  margin: 0 0 2.5rem;
 }
 
 /* Abstract */
