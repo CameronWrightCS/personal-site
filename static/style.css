@@ -40,6 +40,31 @@
   }
 }
 
+/* The theme toggle flips whatever the device prefers and names the other theme */
+:root {
+  --show-dark: inline;
+  --show-light: none;
+}
+
+:root:has(#theme-toggle:checked) {
+  color-scheme: dark;
+  --show-dark: none;
+  --show-light: inline;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --show-dark: none;
+    --show-light: inline;
+  }
+
+  :root:has(#theme-toggle:checked) {
+    color-scheme: light;
+    --show-dark: inline;
+    --show-light: none;
+  }
+}
+
 @font-face {
   font-family: "LM Roman 10";
   src: url("fonts/lmroman10-regular-subset.woff2") format("woff2");
@@ -106,13 +131,15 @@ code {
   font-family: var(--font-mono);
 }
 
-a {
+a,
+.theme label {
   color: var(--link);
-  text-decoration-thickness: 1px;
+  text-decoration: underline 1px;
   text-underline-offset: 3px;
 }
 
-a:hover {
+a:hover,
+.theme label:hover {
   text-decoration-thickness: 2px;
 }
 
@@ -126,6 +153,35 @@ a:hover {
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
+}
+
+/* Theme toggle, in the other corner */
+.theme {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.theme input {
+  position: absolute;
+  opacity: 0;
+}
+
+.theme label {
+  cursor: pointer;
+}
+
+.theme input:focus-visible + label {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.theme .dark {
+  display: var(--show-dark);
+}
+
+.theme .light {
+  display: var(--show-light);
 }
 
 /* Section gaps */
