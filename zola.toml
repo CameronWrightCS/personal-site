@@ -7,3 +7,10 @@ compile_sass = false        # One plain CSS file
 generate_feeds = false      # No blog
 build_search_index = false  # No JavaScript
 minify_html = false         # Readable view-source
+
+# Personal details used by the templates
+[extra]
+role = "Software engineer"
+email = "CameronWrightCS@gmail.com"
+linkedin = "https://www.linkedin.com/in/CameronWrightCS"
+resume = "cameron-wright-resume.pdf"
