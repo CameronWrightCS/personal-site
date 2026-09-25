@@ -47,7 +47,60 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      url: ${{ steps.deployment.outputs.page_url }}
     concurrency: pages # One deploy at a time
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  # Audits the live site after each deploy and puts the scores on the run's Summary page
+  lighthouse:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Lighthouse on every page in the sitemap
+        env:
+          SITE: ${{ needs.deploy.outputs.url }}
+        run: |
+          mkdir reports
+          for url in $(curl -fsS "${SITE}sitemap.xml" | grep -o '<loc>[^<]*' | sed 's/<loc>//'); do
+            name=$(echo "$url" | sed -E 's|^https?://[^/]+/||; s|/$||; s|/|-|g')
+            npx --yes lighthouse@12 "$url" --quiet --chrome-flags="--headless=new --no-sandbox" \
+              --output=json --output=html --output-path="reports/${name:-home}"
+          done
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-reports
+          path: reports/*.report.html
+
+      - name: Summarize scores, fail on accessibility or page weight
+        shell: python
+        run: |
+          import glob
+          import json
+          import os
+          import sys
+          from urllib.parse import urlparse
+
+          BUDGET_KB = 150
+
+          lines = ["| Page | Performance | Accessibility | Best Practices | SEO | Weight |", "|---|---|---|---|---|---|"]
+          failed = []
+          for path in sorted(glob.glob("reports/*.report.json")):
+              report = json.load(open(path))
+              page = urlparse(report["finalDisplayedUrl"]).path
+              score = {key: round(category["score"] * 100) for key, category in report["categories"].items()}
+              weight = report["audits"]["total-byte-weight"]["numericValue"] / 1024
+              lines.append(f"| {page} | {score['performance']} | {score['accessibility']} | {score['best-practices']} | {score['seo']} | {weight:.0f} KB |")
+              if score["accessibility"] < 100 or weight > BUDGET_KB:
+                  failed.append(page)
+
+          if failed:
+              lines.append(f"\n**Failed:** accessibility below 100 or over {BUDGET_KB} KB on {', '.join(failed)}")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
+              summary.write("\n".join(lines) + "\n")
+          if failed:
+              print(f"::error::Accessibility below 100 or over {BUDGET_KB} KB on {', '.join(failed)}")
+              sys.exit(1)
