@@ -3,11 +3,11 @@
 {% block header %}
     <h1 class="name">{{ config.title }}</h1>
     <p class="role">{{ config.extra.role }}</p>
-    <nav>
+    <p class="links">
       <a href="mailto:{{ config.extra.email }}">Email</a>
       <a href="{{ config.extra.linkedin }}">LinkedIn</a>
       <a href="{{ get_url(path=config.extra.resume) }}">Resume (PDF)</a>
-    </nav>
+    </p>
 {%- endblock header %}
 
 {% block content %}

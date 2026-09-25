@@ -217,11 +217,12 @@ header p {
   letter-spacing: 0.06em;
 }
 
-header nav {
+.links {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 0.75rem;
+  margin: 0.75rem 0 0;
 }
 
 
