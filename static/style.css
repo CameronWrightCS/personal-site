@@ -1,3 +1,32 @@
+:root {
+  --paper: #f8f9fa;
+  --ink: #000;
+  --muted: #4b4f56;
+  --link: #000;
+  --rule: #000;
+
+  --font-text: "LM Roman 10", Georgia, serif;
+  --font-display: "LM Roman 17", Georgia, serif;
+  --font-caps: "LM Roman Caps 10", Georgia, serif;
+  --font-mono: "LM Mono 10", "Courier New", monospace;
+
+  --size-body: 1.0625rem;    /* 17px */
+  --size-name: 2.25rem;      /* 36px */
+  --size-heading: 1.3125rem; /* 21px */
+
+  --column: 40rem;           /* 640px */
+  --gap: 4rem;               /* 64px */
+}
+
+/* Desktop sizes, from 640px up */
+@media (min-width: 40rem) {
+  :root {
+    --size-body: 1.1875rem;  /* 19px */
+    --size-name: 3rem;       /* 48px */
+    --size-heading: 1.5rem;  /* 24px */
+  }
+}
+
 @font-face {
   font-family: "LM Roman 10";
   src: url("fonts/lmroman10-regular-subset.woff2") format("woff2");
