@@ -9,5 +9,10 @@
 {%- endblock header %}
 
 {% block content %}
+    <section class="abstract">
+      <h2>Abstract</h2>
+      {{ page.extra.abstract | markdown | trim | safe }}
+      <p class="keywords"><strong>Keywords:</strong> {{ page.extra.keywords }}</p>
+    </section>
     {{ page.content | trim | safe }}
 {%- endblock content %}
