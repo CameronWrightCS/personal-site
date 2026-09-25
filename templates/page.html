@@ -15,4 +15,7 @@
       <p class="keywords"><strong>Keywords:</strong> {{ page.extra.keywords }}</p>
     </section>
     {{ page.content | trim | safe }}
+    {%- if page.higher %}
+    <p class="next">Next case study: <a href="{{ page.higher.permalink }}">{{ page.higher.title }}</a></p>
+    {%- endif %}
 {%- endblock content %}

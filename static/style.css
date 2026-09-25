@@ -234,6 +234,11 @@ p:has(+ table) {
   text-align: center;
 }
 
+/* Next case study link */
+.next {
+  margin-top: var(--gap);
+}
+
 /* Case studies */
 .case-studies {
   padding: 0;
