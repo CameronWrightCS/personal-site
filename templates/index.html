@@ -15,4 +15,16 @@
       <h2>Abstract</h2>
       {{ section.content | trim | safe }}
     </section>
+    <section>
+      <h2>Case studies</h2>
+      <ul class="case-studies">
+        {%- set work = get_section(path="work/_index.md") %}
+        {%- for study in work.pages %}
+        <li>
+          <a href="{{ study.permalink }}">{{ study.title }}</a>
+          <p>{{ study.description }}</p>
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
 {%- endblock content %}
