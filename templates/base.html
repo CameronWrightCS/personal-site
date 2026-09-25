@@ -3,7 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ config.title }}</title>
+  {#- Pages are case studies, the section is home, and neither means the 404 page #}
+  {%- if page %}
+    {%- set title = page.title ~ " | " ~ config.title %}
+    {%- set description = page.description %}
+  {%- elif section %}
+    {%- set title = config.title ~ " | " ~ config.extra.role %}
+    {%- set description = config.description %}
+  {%- else %}
+    {%- set title = "Page not found | " ~ config.title %}
+    {%- set description = config.description %}
+  {%- endif %}
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
   <link rel="preload" href="{{ get_url(path='fonts/lmroman10-regular-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
 </head>
