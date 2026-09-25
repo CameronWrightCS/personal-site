@@ -1,9 +1,9 @@
 :root {
   --paper: #f8f9fa;
-  --ink: #000;
-  --muted: #4b4f56;
-  --link: #000;
-  --rule: #000;
+  --ink: #111418;
+  --muted: #4b5160;
+  --link: #1d3b8c;
+  --rule: #111418;
 
   --font-text: "LM Roman 10", Georgia, serif;
   --font-display: "LM Roman 17", Georgia, serif;
