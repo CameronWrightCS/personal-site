@@ -17,6 +17,7 @@
   --size-heading: 1.3125rem;          /* 21px */
   --size-abstract: 1.0625rem;         /* 17px */
   --size-abstract-heading: 0.9375rem; /* 15px */
+  --size-summary: 1rem;               /* 16px */
 
   --column: 40rem;                    /* 640px */
   --gap: 4rem;                        /* 64px */
@@ -30,6 +31,7 @@
     --size-heading: 1.5rem;           /* 24px */
     --size-abstract: 1.09375rem;      /* 17.5px */
     --size-abstract-heading: 1rem;    /* 16px */
+    --size-summary: 1.0625rem;        /* 17px */
   }
 }
 
@@ -168,4 +170,20 @@ header nav {
 
 .abstract p {
   margin: 0;
+}
+
+/* Case studies */
+.case-studies {
+  padding: 0;
+  list-style: none;
+}
+
+.case-studies li + li {
+  margin-top: 1.25rem;
+}
+
+.case-studies p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: var(--size-summary);
 }
