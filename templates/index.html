@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 
+{% block head %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ config.title | json_encode | safe }},
+    "jobTitle": {{ config.extra.role | json_encode | safe }},
+    "url": {{ current_url | json_encode | safe }},
+    "sameAs": [{{ config.extra.linkedin | json_encode | safe }}]
+  }
+  </script>
+{%- endblock head %}
+
 {% block header %}
     <h1 class="name">{{ config.title }}</h1>
     <p class="role">{{ config.extra.role }}</p>
