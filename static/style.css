@@ -66,6 +66,9 @@
 }
 
 body {
+  max-width: var(--column);
+  margin: 0 auto;
+  padding: var(--gap) 1.5rem;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-text);
