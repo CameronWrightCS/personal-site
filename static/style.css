@@ -156,10 +156,6 @@ header p {
   letter-spacing: 0.06em;
 }
 
-.email {
-  font-family: var(--font-mono);
-}
-
 header nav {
   display: flex;
   justify-content: center;
