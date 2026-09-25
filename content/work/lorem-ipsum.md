@@ -19,3 +19,11 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 ## Result
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Table 1: Lorem ipsum before and after.
+
+| Measure | Before | After |
+|:--------|-------:|------:|
+| Lorem   | [N]    | [N]   |
+| Ipsum   | [N]    | [N]   |
+| Dolor   | [N]    | [N]   |
