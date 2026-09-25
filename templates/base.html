@@ -12,6 +12,10 @@
     <a href="{{ config.base_url }}/">Home</a>
   </nav>
   <header>
+    <div class="theme">
+      <input type="checkbox" id="theme-toggle">
+      <label for="theme-toggle"><span class="dark">Dark</span><span class="light">Light</span></label>
+    </div>
     {%- block header %}{% endblock header %}
   </header>
   <main>
