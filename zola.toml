@@ -1,4 +1,4 @@
-# Must match where the site is served. Update it when a domain is added.
+# Must match where the site is served, so update it when a domain is added.
 base_url = "https://cameronwrightcs.github.io/personal-site"
 title = "Cameron Wright"
 default_language = "en"
