@@ -312,3 +312,22 @@ footer {
   color: var(--muted);
   font-size: var(--size-colophon);
 }
+
+/* Invisible 44px tall tap areas for standalone links, without moving anything */
+.home a,
+.theme label,
+.links a,
+.case-studies a,
+.next a {
+  position: relative;
+}
+
+.home a::after,
+.theme label::after,
+.links a::after,
+.case-studies a::after,
+.next a::after {
+  content: "";
+  position: absolute;
+  inset: -0.625rem -0.5rem;
+}
