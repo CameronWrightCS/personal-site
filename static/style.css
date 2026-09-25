@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light dark;
+
   --paper: #f8f9fa;
   --ink: #111418;
   --muted: #4b5160;
@@ -24,6 +26,17 @@
     --size-body: 1.1875rem;  /* 19px */
     --size-name: 3rem;       /* 48px */
     --size-heading: 1.5rem;  /* 24px */
+  }
+}
+
+/* Dark colors, when the device is in dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16181c;
+    --ink: #e4e6ea;
+    --muted: #a0a6b1;
+    --link: #93abeb;
+    --rule: #e4e6ea;
   }
 }
 
