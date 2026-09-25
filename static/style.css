@@ -210,6 +210,30 @@ main > h2::before {
   margin-right: 1em;
 }
 
+/* Tables, booktabs style */
+table {
+  margin: 0.5rem auto 1.5rem;
+  border-collapse: collapse;
+  border-top: 1.6px solid var(--rule);
+  border-bottom: 1.6px solid var(--rule);
+}
+
+th {
+  border-bottom: 0.8px solid var(--rule);
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.25rem 0.75rem;
+}
+
+/* A paragraph right above a table is its caption */
+p:has(+ table) {
+  margin-bottom: 0;
+  text-align: center;
+}
+
 /* Case studies */
 .case-studies {
   padding: 0;
