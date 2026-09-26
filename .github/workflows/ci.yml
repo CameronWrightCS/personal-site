@@ -17,11 +17,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: zola build
+      - name: Build
         uses: docker://ghcr.io/getzola/zola:v0.23.6
         with:
           args: build
-      - name: zola check
+      - name: Check links
         uses: docker://ghcr.io/getzola/zola:v0.23.6
         with:
           args: check
@@ -59,7 +59,7 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Run Lighthouse on every page in the sitemap
+      - name: Run Lighthouse
         env:
           SITE: ${{ needs.deploy.outputs.url }}
         run: |
@@ -75,7 +75,7 @@ jobs:
           name: lighthouse-reports
           path: reports/*.report.html
 
-      - name: Summarize scores, fail on accessibility or page weight
+      - name: Summarize scores
         shell: python
         run: |
           import glob
