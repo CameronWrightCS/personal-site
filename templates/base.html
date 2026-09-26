@@ -30,7 +30,7 @@
 </head>
 <body>
   <nav class="home">
-    <a href="{{ config.base_url }}/">Home</a>
+    <a href="{{ config.base_url }}/"{% if current_path and current_path == "/" %} aria-current="page"{% endif %}>Home</a>
   </nav>
   <header>
     <div class="theme">
