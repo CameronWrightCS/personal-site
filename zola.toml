@@ -2,7 +2,6 @@
 base_url = "https://cameronwrightcs.github.io/personal-site"
 title = "Cameron Wright"
 description = "Cameron Wright is a software engineer who builds developer tooling, CI/CD pipelines, and cloud infrastructure. Case studies and resume."
-default_language = "en"
 
 compile_sass = false        # One plain CSS file
 generate_feeds = false      # No blog
