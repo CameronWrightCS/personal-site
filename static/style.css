@@ -158,6 +158,11 @@ a:hover,
   left: 1.5rem;
 }
 
+.home [aria-current="page"] {
+  color: var(--muted);
+  text-decoration: none;
+}
+
 /* Theme toggle, in the other corner */
 .theme {
   position: absolute;

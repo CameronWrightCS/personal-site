@@ -34,7 +34,8 @@
 </head>
 <body>
   <nav class="home">
-    <a href="{{ config.base_url }}/"{% if current_path and current_path == "/" %} aria-current="page"{% endif %}>Home</a>
+    {#- On the home page, Home has no href, so it isn't a link #}
+    <a{% if current_path and current_path == "/" %} aria-current="page"{% else %} href="{{ config.base_url }}/"{% endif %}>Home</a>
   </nav>
   <header>
     <div class="theme">
