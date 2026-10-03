@@ -40,10 +40,12 @@
   }
 }
 
-/* The theme toggle flips whatever the device prefers and names the other theme */
+/* The theme toggle flips whatever the device prefers: its icon flips too, its hidden name doesn't */
 :root {
   --show-dark: inline;
   --show-light: none;
+  --name-dark: inline;
+  --name-light: none;
 }
 
 :root:has(#theme-toggle:checked) {
@@ -56,6 +58,8 @@
   :root {
     --show-dark: none;
     --show-light: inline;
+    --name-dark: none;
+    --name-light: inline;
   }
 
   :root:has(#theme-toggle:checked) {
@@ -133,15 +137,13 @@ code {
   font-family: var(--font-mono);
 }
 
-a,
-.theme label {
+a {
   color: var(--link);
   text-decoration: underline 1px;
   text-underline-offset: 3px;
 }
 
-a:hover,
-.theme label:hover {
+a:hover {
   text-decoration-thickness: 2px;
 }
 
@@ -176,7 +178,25 @@ a:hover,
 }
 
 .theme label {
+  display: inline-block;
+  padding: 0 0.35em;
+  background: color-mix(in srgb, currentColor 7%, transparent);
+  color: var(--link);
   cursor: pointer;
+}
+
+.theme label:hover {
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.theme svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
 }
 
 .theme .dark {
@@ -185,6 +205,24 @@ a:hover,
 
 .theme .light {
   display: var(--show-light);
+}
+
+.theme .name-dark {
+  display: var(--name-dark);
+}
+
+.theme .name-light {
+  display: var(--name-light);
+}
+
+/* Names are for screen readers only */
+.theme span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* Section gaps */
