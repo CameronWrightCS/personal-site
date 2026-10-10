@@ -54,7 +54,17 @@
     {%- block content %}{% endblock content %}
   </main>
   <footer>
-    <p>Set in Latin Modern, based on Donald E. Knuth’s Computer Modern.</p>
+    {#- Each click on the font name switches to the next Computer Modern style, from most to least like the default #}
+    <p class="font-cycle">
+      <input type="radio" name="font" id="font-roman" aria-label="Computer Modern" checked>
+      <input type="radio" name="font" id="font-concrete" aria-label="Computer Modern Concrete">
+      <input type="radio" name="font" id="font-sans" aria-label="Computer Modern Sans Serif">
+      <input type="radio" name="font" id="font-typewriter" aria-label="Computer Modern Typewriter">
+      <span class="roman">Set in Donald E. Knuth’s <label for="font-concrete">Computer Modern</label>.</span>
+      <span class="concrete">Set in Donald E. Knuth’s <label for="font-sans">Computer Modern Concrete</label>.</span>
+      <span class="sans">Set in Donald E. Knuth’s <label for="font-typewriter">Computer Modern Sans Serif</label>.</span>
+      <span class="typewriter">Set in Donald E. Knuth’s <label for="font-roman">Computer Modern Typewriter</label>.</span>
+    </p>
   </footer>
 </body>
 </html>

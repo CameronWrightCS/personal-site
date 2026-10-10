@@ -161,7 +161,8 @@ a:hover {
 }
 
 :focus-visible,
-.theme input:focus-visible + label {
+.theme input:focus-visible + label,
+.font-cycle:has(input:focus-visible) label {
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
@@ -364,6 +365,53 @@ p:has(+ table) {
 footer {
   color: var(--muted);
   font-size: var(--size-colophon);
+}
+
+/* Colophon font cycle: hidden radio buttons hold the font, and each font name is a label for the next one */
+.font-cycle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.font-cycle label {
+  text-decoration: underline dotted 1px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.font-cycle span {
+  display: none;
+}
+
+.font-cycle:has(#font-roman:checked) .roman,
+.font-cycle:has(#font-concrete:checked) .concrete,
+.font-cycle:has(#font-sans:checked) .sans,
+.font-cycle:has(#font-typewriter:checked) .typewriter {
+  display: inline;
+}
+
+:root:has(#font-concrete:checked) {
+  --font-text: "CMU Concrete", Georgia, serif;
+  --font-display: "CMU Concrete", Georgia, serif;
+  --font-caps: "CMU Concrete", Georgia, serif;
+}
+
+:root:has(#font-sans:checked) {
+  --font-text: "LM Sans 10", sans-serif;
+  --font-display: "LM Sans 10", sans-serif;
+  --font-caps: "LM Sans 10", sans-serif;
+}
+
+:root:has(#font-typewriter:checked) {
+  --font-text: var(--font-mono);
+  --font-display: var(--font-mono);
+  --font-caps: var(--font-mono);
+}
+
+/* The other fonts have no small caps, so the browser draws them */
+:root:has(#font-roman:not(:checked)) :is(.role, .author) {
+  font-variant-caps: small-caps;
 }
 
 /* Invisible 44px tall tap areas for standalone links, without moving anything */
