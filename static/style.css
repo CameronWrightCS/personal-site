@@ -167,6 +167,14 @@ a:hover {
   outline-offset: 3px;
 }
 
+/* Hidden inputs, switched by their labels, in the theme toggle and the font cycle */
+.theme input,
+.font-cycle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Home link, in the same corner of every page */
 .home {
   position: absolute;
@@ -184,11 +192,6 @@ a:hover {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-}
-
-.theme input {
-  position: absolute;
-  opacity: 0;
 }
 
 .theme label {
@@ -368,12 +371,6 @@ footer {
 }
 
 /* Colophon font cycle: hidden radio buttons hold the font, and each font name is a label for the next one */
-.font-cycle input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .font-cycle label {
   text-decoration: underline dotted 1px;
   text-underline-offset: 3px;
