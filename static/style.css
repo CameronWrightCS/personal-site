@@ -389,21 +389,22 @@ footer {
 }
 
 :root:has(#font-concrete:checked) {
-  --font-text: "CMU Concrete", Georgia, serif;
-  --font-display: "CMU Concrete", Georgia, serif;
-  --font-caps: "CMU Concrete", Georgia, serif;
+  --font-cycle: "CMU Concrete", Georgia, serif;
 }
 
 :root:has(#font-sans:checked) {
-  --font-text: "LM Sans 10", sans-serif;
-  --font-display: "LM Sans 10", sans-serif;
-  --font-caps: "LM Sans 10", sans-serif;
+  --font-cycle: "LM Sans 10", sans-serif;
 }
 
 :root:has(#font-typewriter:checked) {
-  --font-text: var(--font-mono);
-  --font-display: var(--font-mono);
-  --font-caps: var(--font-mono);
+  --font-cycle: var(--font-mono);
+}
+
+/* Any font but the default replaces the text, title, and small caps fonts */
+:root:has(#font-roman:not(:checked)) {
+  --font-text: var(--font-cycle);
+  --font-display: var(--font-cycle);
+  --font-caps: var(--font-cycle);
 }
 
 /* The other fonts have no small caps, so the browser draws them */
