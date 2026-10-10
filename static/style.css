@@ -108,6 +108,19 @@
   font-display: swap;
 }
 
+/* Only the colophon font cycle uses these, so they download after a click */
+@font-face {
+  font-family: "LM Sans 10";
+  src: url("fonts/lmsans10-regular-subset.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CMU Concrete";
+  src: url("fonts/cmunorm-subset.woff2") format("woff2");
+  font-display: swap;
+}
+
 /* Base */
 body {
   max-width: var(--column);
