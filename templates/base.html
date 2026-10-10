@@ -27,7 +27,10 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="{{ config.title }}, {{ config.extra.role | lower }}">
   {%- endif %}
+  {#- The ICO says 32x32 so modern browsers pick the SVG, and iPhones use the PNG #}
+  <link rel="icon" href="{{ get_url(path='favicon.ico') }}" sizes="32x32">
   <link rel="icon" href="{{ get_url(path='favicon.svg') }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ get_url(path='apple-touch-icon.png') }}">
   <link rel="preload" href="{{ get_url(path='fonts/lmroman10-regular-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
   {%- block head %}{% endblock head %}
