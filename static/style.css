@@ -381,10 +381,10 @@ footer {
   display: none;
 }
 
-.font-cycle:has(#font-roman:checked) .roman,
-.font-cycle:has(#font-concrete:checked) .concrete,
-.font-cycle:has(#font-sans:checked) .sans,
-.font-cycle:has(#font-typewriter:checked) .typewriter {
+#font-roman:checked ~ .roman,
+#font-concrete:checked ~ .concrete,
+#font-sans:checked ~ .sans,
+#font-typewriter:checked ~ .typewriter {
   display: inline;
 }
 
