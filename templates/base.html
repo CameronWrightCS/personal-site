@@ -8,7 +8,7 @@
     {%- set title = page.title ~ " | " ~ config.title %}
     {%- set description = page.description %}
   {%- elif section %}
-    {%- set title = config.title ~ " | " ~ config.extra.role %}
+    {%- set title = config.title %}
     {%- set description = config.description %}
   {%- else %}
     {%- set title = "Page not found | " ~ config.title %}
