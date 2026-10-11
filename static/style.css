@@ -370,7 +370,7 @@ footer {
   font-size: var(--size-colophon);
 }
 
-/* Colophon font cycle: hidden radio buttons hold the font, and each font name is a label for the next one */
+/* Colophon font cycle: hidden radio buttons hold the font, and "Computer Modern" in each sentence is a label for the next one */
 .font-cycle label {
   text-decoration: underline dotted 1px;
   text-underline-offset: 3px;
