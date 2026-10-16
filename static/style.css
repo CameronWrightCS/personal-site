@@ -132,6 +132,7 @@ body {
   font-family: var(--font-text);
   font-size: var(--size-body);
   line-height: 1.55;
+  text-wrap: pretty; /* Avoids one-word last lines */
 }
 
 h1 {
@@ -140,10 +141,12 @@ h1 {
   font-weight: normal;
   line-height: 1.15;
   text-align: center;
+  text-wrap: balance;
 }
 
 h2 {
   font-size: var(--size-heading);
+  text-wrap: balance;
 }
 
 code {
