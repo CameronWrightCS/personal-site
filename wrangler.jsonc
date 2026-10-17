@@ -1,0 +1,13 @@
+// Cloudflare settings: the built site in public/, served as plain files
+{
+  "name": "personal-site",
+  "compatibility_date": "2026-10-17",
+  "assets": {
+    "directory": "public",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "cameronwright.dev", "custom_domain": true },
+    { "pattern": "www.cameronwright.dev", "custom_domain": true }
+  ]
+}
