@@ -1,5 +1,5 @@
-# Must match where the site is served, so update it when a domain is added.
-base_url = "https://cameronwrightcs.github.io/personal-site"
+# Must match where the site is served.
+base_url = "https://cameronwright.dev"
 title = "Cameron Wright"
 description = "Cameron Wright is a software engineer who builds developer tooling, CI/CD pipelines, and cloud infrastructure. Case studies and resume."
 
