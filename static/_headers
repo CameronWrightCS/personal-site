@@ -1,0 +1,6 @@
+# Fonts and the stylesheet never change at the same address (the stylesheet link carries a hash),
+# so browsers can keep them for a year
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/style.css
+  Cache-Control: public, max-age=31536000, immutable
