@@ -32,38 +32,33 @@ jobs:
         with:
           args: vnu --skip-non-html public
 
-      - uses: actions/upload-pages-artifact@v5
+      # Wrangler 4 needs Node 22
+      - uses: actions/setup-node@v7
         if: github.ref == 'refs/heads/main'
         with:
-          path: public
-
-  deploy:
-    if: github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write     # Publish to Pages
-      id-token: write  # Prove the deploy comes from this workflow
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    outputs:
-      url: ${{ steps.deployment.outputs.page_url }}
-    concurrency: pages # One deploy at a time
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+          node-version: 22
+          package-manager-cache: false  # Nothing to cache, and a deploy shouldn't trust a cache
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
 
   # Audits the live site after each deploy and puts the scores on the run's Summary page
   lighthouse:
-    needs: deploy
+    if: github.ref == 'refs/heads/main'
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Run Lighthouse
         env:
-          SITE: ${{ needs.deploy.outputs.url }}
+          SITE: https://cameronwright.dev/
         run: |
           mkdir reports
+          # A new custom domain can take a few minutes to get its certificate
+          for attempt in $(seq 1 30); do curl -fsS -o /dev/null "$SITE" && break; sleep 10; done
           for url in $(curl -fsS "${SITE}sitemap.xml" | grep -o '<loc>[^<]*' | sed 's/<loc>//'); do
             name=$(echo "$url" | sed -E 's|^https?://[^/]+/||; s|/$||; s|/|-|g')
             npx --yes lighthouse@12 "$url" --quiet --chrome-flags="--headless=new --no-sandbox" \
