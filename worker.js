@@ -9,7 +9,7 @@ export default {
     if (choice) return saveTheme(choice[1], url);
 
     // Asks by path alone, so a browser's "is my copy still current?" never gets a page in the old theme
-    const page = await env.ASSETS.fetch(url.origin + url.pathname);
+    const page = await env.ASSETS.fetch(url.origin + url.pathname, { redirect: "manual" }); // Keeps redirects, like adding the last slash to a case study's address
     if (!(page.headers.get("Content-Type") || "").startsWith("text/html")) return page;
     return new Response(withTheme(await page.text(), request.headers.get("Cookie")), {
       status: page.status,
