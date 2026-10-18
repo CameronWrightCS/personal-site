@@ -1,3 +1,6 @@
 public/
 _to_delete/
 CLAUDE.local.md
+
+# Local state from wrangler dev
+.wrangler/
