@@ -40,33 +40,13 @@
   }
 }
 
-/* The theme toggle flips whatever the device prefers: its icon flips too, its hidden name doesn't */
-:root {
-  --show-dark: inline;
-  --show-light: none;
-  --name-dark: inline;
-  --name-light: none;
+/* Pages follow the device's theme until the visitor picks one, which worker.js marks on <html> */
+:root[data-theme="light"] {
+  color-scheme: light;
 }
 
-:root:has(#theme-toggle:checked) {
+:root[data-theme="dark"] {
   color-scheme: dark;
-  --show-dark: none;
-  --show-light: inline;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --show-dark: none;
-    --show-light: inline;
-    --name-dark: none;
-    --name-light: inline;
-  }
-
-  :root:has(#theme-toggle:checked) {
-    color-scheme: light;
-    --show-dark: inline;
-    --show-light: none;
-  }
 }
 
 /* Fonts */
@@ -164,14 +144,12 @@ a:hover {
 }
 
 :focus-visible,
-.theme input:focus-visible + label,
 .font-cycle:has(input:focus-visible) label {
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
 
-/* Hidden inputs, switched by their labels, in the theme toggle and the font cycle */
-.theme input,
+/* Hidden inputs, switched by their labels, in the font cycle */
 .font-cycle input {
   position: absolute;
   opacity: 0;
@@ -193,7 +171,7 @@ a:hover {
   text-decoration: none;
 }
 
-/* Theme toggle, at the end of the colophon line */
+/* Theme switch, at the end of the colophon line */
 .theme {
   flex-shrink: 0;
   font-size: var(--size-body); /* The size of the other links, not the colophon's */
@@ -208,15 +186,15 @@ a:hover {
   }
 }
 
-.theme label {
+.theme a {
   display: inline-block;
   padding: 0 0.35em;
   background: color-mix(in srgb, currentColor 7%, transparent);
   color: var(--link);
-  cursor: pointer;
+  text-decoration: none;
 }
 
-.theme label:hover {
+.theme a:hover {
   background: color-mix(in srgb, currentColor 14%, transparent);
 }
 
@@ -230,20 +208,29 @@ a:hover {
   stroke-linecap: round;
 }
 
-.theme .dark {
-  display: var(--show-dark);
+/* The moon switches light pages to dark, and the sun switches dark pages to light */
+.theme .to-light {
+  display: none;
 }
 
-.theme .light {
-  display: var(--show-light);
+@media (prefers-color-scheme: dark) {
+  .theme .to-dark {
+    display: none;
+  }
+
+  .theme .to-light {
+    display: inline-block;
+  }
 }
 
-.theme .name-dark {
-  display: var(--name-dark);
+:root[data-theme="light"] .theme .to-dark,
+:root[data-theme="dark"] .theme .to-light {
+  display: inline-block;
 }
 
-.theme .name-light {
-  display: var(--name-light);
+:root[data-theme="light"] .theme .to-light,
+:root[data-theme="dark"] .theme .to-dark {
+  display: none;
 }
 
 /* Names are for screen readers only */
@@ -432,7 +419,7 @@ footer {
 
 /* Invisible 44px tall tap areas for standalone links, without moving anything */
 .corners a,
-.theme label,
+.theme a,
 .links a,
 .case-studies a,
 .next a {
@@ -440,7 +427,7 @@ footer {
 }
 
 .corners a::after,
-.theme label::after,
+.theme a::after,
 .links a::after,
 .case-studies a::after,
 .next a::after {
