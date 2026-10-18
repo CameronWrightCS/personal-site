@@ -36,9 +36,10 @@
   {%- block head %}{% endblock head %}
 </head>
 <body>
-  <nav class="home">
+  <nav class="corners">
     {#- On the home page, Home has no href, so it isn't a link #}
     <a{% if current_path and current_path == "/" %} aria-current="page"{% else %} href="{{ config.base_url }}/"{% endif %}>Home</a>
+    <a href="{{ config.extra.photos }}">Photos</a>
   </nav>
   <header>
     {%- block header %}{% endblock header %}

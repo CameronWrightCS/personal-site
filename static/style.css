@@ -178,14 +178,17 @@ a:hover {
   pointer-events: none;
 }
 
-/* Home link, in the same corner of every page */
-.home {
+/* Home and Photos links, in the top corners of every page, like the bar on my photo site */
+.corners {
   position: absolute;
   top: 1.5rem;
+  right: 1.5rem;
   left: 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.home [aria-current="page"] {
+.corners [aria-current="page"] {
   color: var(--muted);
   text-decoration: none;
 }
@@ -428,7 +431,7 @@ footer {
 }
 
 /* Invisible 44px tall tap areas for standalone links, without moving anything */
-.home a,
+.corners a,
 .theme label,
 .links a,
 .case-studies a,
@@ -436,7 +439,7 @@ footer {
   position: relative;
 }
 
-.home a::after,
+.corners a::after,
 .theme label::after,
 .links a::after,
 .case-studies a::after,
