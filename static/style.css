@@ -190,11 +190,19 @@ a:hover {
   text-decoration: none;
 }
 
-/* Theme toggle, in the other corner */
+/* Theme toggle, at the end of the colophon line */
 .theme {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  flex-shrink: 0;
+  font-size: var(--size-body); /* The size of the other links, not the colophon's */
+}
+
+/* Wide screens have room for it just outside the column's top right corner */
+@media (min-width: 52rem) {
+  .theme {
+    position: absolute;
+    top: 1.5rem;
+    left: calc(100% + 0.25rem);
+  }
 }
 
 .theme label {
@@ -367,8 +375,12 @@ p:has(+ table) {
   margin-top: var(--gap);
 }
 
-/* Colophon */
+/* Colophon, with the theme toggle at the end of its line */
 footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
   color: var(--muted);
   font-size: var(--size-colophon);
 }
