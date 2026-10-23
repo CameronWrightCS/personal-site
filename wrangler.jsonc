@@ -7,7 +7,7 @@
     "directory": "public",
     "binding": "ASSETS",
     // Pages run the Worker, for the saved theme, while fonts, the resume, and other files skip it
-    "run_worker_first": ["/*", "!/*.woff2", "!/*.css", "!/*.pdf", "!/*.png", "!/*.svg", "!/*.ico", "!/*.txt", "!/*.xml"],
+    "run_worker_first": ["/*", "!/*.pdf", "!/*.png", "!/*.svg", "!/*.ico", "!/*.woff2", "!/*.css", "!/*.txt", "!/*.xml"],
     "not_found_handling": "404-page"
   },
   "routes": [
