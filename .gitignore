@@ -2,5 +2,8 @@ public/
 _to_delete/
 CLAUDE.local.md
 
+# Windows download markers copied over from WSL
+*:Zone.Identifier
+
 # Local state from wrangler dev
 .wrangler/
