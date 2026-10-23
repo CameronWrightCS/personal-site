@@ -18,7 +18,7 @@ export default {
   },
 };
 
-// Saves the visitor's theme for a year and sends them back to the page they were on, like my photo site does.
+// Saves the visitor's theme for a year and sends them back to the page they were on.
 function saveTheme(theme, url) {
   const back = url.searchParams.get("back") || "/";
   const location = back.startsWith("/") && !back.startsWith("//") ? back : "/"; // Never another site
