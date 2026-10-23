@@ -166,11 +166,6 @@ a:hover {
   justify-content: space-between;
 }
 
-.corners [aria-current="page"] {
-  color: var(--muted);
-  text-decoration: none;
-}
-
 /* Theme switch, at the end of the colophon line */
 .theme {
   flex-shrink: 0;
@@ -186,6 +181,8 @@ a:hover {
   }
 }
 
+/* The house and the theme switch are icons on a light tint of the link color */
+.home,
 .theme a {
   display: inline-block;
   padding: 0 0.35em;
@@ -194,10 +191,18 @@ a:hover {
   text-decoration: none;
 }
 
+.home:hover,
 .theme a:hover {
   background: color-mix(in srgb, currentColor 14%, transparent);
 }
 
+/* On the home page, the house isn't a link, so it's muted with no tint */
+.home[aria-current="page"] {
+  background: none;
+  color: var(--muted);
+}
+
+.home svg,
 .theme svg {
   width: 1em;
   height: 1em;
@@ -234,6 +239,7 @@ a:hover {
 }
 
 /* Names are for screen readers only */
+.home span,
 .theme span {
   position: absolute;
   width: 1px;
