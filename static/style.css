@@ -102,6 +102,10 @@
 }
 
 /* Base */
+html {
+  scrollbar-gutter: stable; /* Keeps the column in place between pages with and without a scrollbar */
+}
+
 body {
   max-width: var(--column);
   margin: 0 auto;
