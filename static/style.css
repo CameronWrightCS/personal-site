@@ -164,23 +164,28 @@ a:hover {
 .corners {
   position: absolute;
   top: 1.5rem;
-  right: 1.5rem;
+  right: calc(1.5rem + 1.7em + 1.75rem); /* Leaves the corner to the theme switch (1.7em wide), 28px past Photos */
   left: 1.5rem;
   display: flex;
   justify-content: space-between;
 }
 
-/* Theme switch, at the end of the colophon line */
+/* Theme switch, in the top right corner */
 .theme {
-  flex-shrink: 0;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
   font-size: var(--size-body); /* The size of the other links, not the colophon's */
 }
 
-/* Wide screens have room for it just outside the column's top right corner */
+/* Wide screens have room for it just outside the column's top right corner, so Photos gets the corner */
 @media (min-width: 52rem) {
+  .corners {
+    right: 1.5rem;
+  }
+
   .theme {
-    position: absolute;
-    top: 1.5rem;
+    right: auto;
     left: calc(100% + 0.25rem);
   }
 }
@@ -375,12 +380,9 @@ p:has(+ table) {
   margin-top: var(--gap);
 }
 
-/* Colophon, with the theme toggle at the end of its line */
+/* Colophon */
 footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
+  display: flow-root; /* Keeps its line's margins from merging into the section gap above */
   color: var(--muted);
   font-size: var(--size-colophon);
 }
