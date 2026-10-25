@@ -190,6 +190,18 @@ a:hover {
   }
 }
 
+/* Large text on a small screen, like 320px at 200%, gets a tighter bar: 12px in and 12px apart (rem breakpoints follow the text size) */
+@media (max-width: 13rem) {
+  .corners {
+    right: calc(0.75rem + 1.7em + 0.75rem);
+    left: 0.75rem;
+  }
+
+  .theme {
+    right: 0.75rem;
+  }
+}
+
 /* The house and the theme switch are icons on a light tint of the link color */
 .home,
 .theme a {
