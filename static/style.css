@@ -160,7 +160,7 @@ a:hover {
   pointer-events: none;
 }
 
-/* Home and Photos links, in the top corners of every page, like the bar on my photo site */
+/* Home and Photos links, at the top of every page, like the bar on my photo site */
 .corners {
   position: absolute;
   top: 1.5rem;
