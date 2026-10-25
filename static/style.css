@@ -466,3 +466,16 @@ footer {
   position: absolute;
   inset: -0.625rem -0.5rem;
 }
+
+/* Printed pages are always light, without the links that only work on screen */
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    color-scheme: light;
+  }
+
+  .corners,
+  .theme {
+    display: none;
+  }
+}
