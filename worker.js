@@ -20,8 +20,9 @@ export default {
 
 // Saves the visitor's theme for a year and sends them back to the page they were on.
 function saveTheme(theme, url) {
-  const back = url.searchParams.get("back") || "/";
-  const location = back.startsWith("/") && !back.startsWith("//") ? back : "/"; // Never another site
+  // Resolved the way a browser would, so a backslash or tab can't slip in another site
+  const back = URL.parse(url.searchParams.get("back") || "/", url.origin);
+  const location = back?.origin === url.origin ? back.pathname + back.search : "/"; // Never another site
   // The cookie also covers my photo site, which shares the domain
   const domain = url.hostname.endsWith("cameronwright.dev") ? "; Domain=cameronwright.dev" : "";
   return new Response(null, {
