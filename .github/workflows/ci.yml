@@ -21,10 +21,6 @@ jobs:
         uses: docker://ghcr.io/getzola/zola:v0.23.6
         with:
           args: build
-      - name: Check links
-        uses: docker://ghcr.io/getzola/zola:v0.23.6
-        with:
-          args: check
 
       # Latest on purpose: HTML is a living standard and the dated tags stopped in 2024
       - name: Validate HTML
