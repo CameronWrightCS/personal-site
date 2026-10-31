@@ -46,8 +46,6 @@ jobs:
           SITE: https://cameronwright.dev/
         run: |
           mkdir reports
-          # A new custom domain can take a few minutes to get its certificate
-          for attempt in $(seq 1 30); do curl -fsS -o /dev/null "$SITE" && break; sleep 10; done
           for url in $(curl -fsS "${SITE}sitemap.xml" | grep -o '<loc>[^<]*' | sed 's/<loc>//'); do
             name=$(echo "$url" | sed -E 's|^https?://[^/]+/||; s|/$||; s|/|-|g')
             npx --yes lighthouse@13 "$url" --quiet --chrome-flags="--headless=new --no-sandbox" \
