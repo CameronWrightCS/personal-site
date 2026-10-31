@@ -56,6 +56,7 @@ jobs:
         with:
           name: lighthouse-reports
           path: reports/*.report.html
+          if-no-files-found: error  # No reports means no page was audited, like when the sitemap didn't load
 
       - name: Summarize scores
         shell: python
