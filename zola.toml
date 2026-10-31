@@ -3,13 +3,8 @@ base_url = "https://cameronwright.dev"
 title = "Cameron Wright"
 description = "Cameron Wright is a software engineer who builds developer tooling, CI/CD pipelines, and cloud infrastructure. Case studies and resume."
 
-compile_sass = false        # One plain CSS file
-generate_feeds = false      # No blog
-build_search_index = false  # No JavaScript
-minify_html = false         # Readable view-source
-
 [markdown]
-smart_punctuation = true    # Curly quotes, like LaTeX
+smart_punctuation = true  # Curly quotes, like LaTeX
 
 # Personal details used by the templates
 [extra]
