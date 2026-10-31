@@ -38,7 +38,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4"
 
   # Audits the live site after each deploy and puts the scores on the run's Summary page
   lighthouse:
